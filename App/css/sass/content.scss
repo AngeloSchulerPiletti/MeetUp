@@ -1,0 +1,186 @@
+@import "./fonts";
+@import "./colors";
+@import "./mixins";
+@import "./animations";
+
+// DEFAULT
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+button,
+a {
+  color: $color0;
+  font-size: 1.6vw;
+}
+
+#content {
+  height: 100%;
+  .sec {
+    position: relative;
+    width: 80%;
+    margin: auto;
+
+    height: 100%;
+    padding: 10vw 5vw 10vw 5vw;
+    box-sizing: border-box;
+  }
+
+  /*
+  It puts the content above the canvas
+  */
+  .up {
+    @include frontCanvas;
+  }
+  #s0 {
+    // padding: 10vw 0 0 0;
+    button {
+      background-color: transparent;
+      border: none;
+
+      @include Font3;
+      text-transform: uppercase;
+      color: $color0;
+      font-size: 3vw;
+
+      right: 5%;
+      bottom: 20%;
+
+      cursor: pointer;
+
+      &:active,
+      &:hover,
+      &:focus {
+        outline: 0 !important;
+        outline-offset: 0;
+      }
+      &::before,
+      &::after {
+        position: absolute;
+        content: "";
+      }
+      &::before {
+        animation: border_button_before 1000ms ease 0ms infinite alternate both;
+        border-top: 1px solid $color0;
+        border-left: 1px solid $color0;
+      }
+      &::after {
+        animation: border_button_after 1000ms ease 0ms infinite alternate both;
+        border-bottom: 1px solid $color0;
+        border-right: 1px solid $color0;
+      }
+      transition: transform 100ms, opacity 500ms;
+
+      &:hover {
+        color: $color0;
+        &::after {
+          border-bottom: 1px solid $color1;
+          border-right: 1px solid $color1;
+          animation-play-state: paused;
+        }
+        &::before {
+          border-top: 1px solid $color1;
+          border-left: 1px solid $color1;
+          animation-play-state: paused;
+        }
+      }
+    }
+    &.show button{
+        opacity: 1;
+    }
+    &.hide button{
+        opacity: 0;
+    }
+  }
+  
+
+  //SEÇÃO 1
+  #s1 {
+    h1 {
+      font-size: 3.4vw;
+      text-transform: uppercase;
+      @include Font3;
+
+      border-left: 3px solid $color0;
+      padding-left: 1.4vw;
+
+      transform: translateX(-100%);
+      opacity: 0.4;
+      transition: transform 500ms;
+    }
+    &.show h1 {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    h2 {
+      font-size: 3.4vw;
+      @include Font2_I;
+
+      bottom: 10%;
+
+      opacity: 0;
+      transition: opacity 1000ms 1000ms;
+    }
+    &.show h2 {
+      opacity: 1;
+    }
+    #credits {
+      left: 36%;
+      top: 38%;
+      background: linear-gradient(
+        45deg,
+        darken($color4, 8%),
+        lighten($color4, 8%)
+      );
+      border-radius: 1.4vw;
+      padding: 1.5vw 3vw 1.5vw 3vw;
+      box-sizing: border-box;
+
+      width: 44%;
+      height: 28%;
+
+      transform: scaleY(0);
+      transition: transform 400ms;
+
+      ul {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        opacity: 0;
+        transition: opacity 200ms 400ms;
+
+        li {
+          @include Font2_I;
+          a {
+            font-size: 1.1em;
+            &:before {
+              content: ">  ";
+              font-size: 1.4em;
+              color: $color0;
+              font-weight: 300;
+              font-style: normal;
+              opacity: 0;
+              transition: opacity 600ms;
+            }
+            &:hover::before {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+    &.show #credits{
+        transform: scaleY(1);
+
+        ul{
+            opacity: 1;
+        }
+    }
+  }
+}

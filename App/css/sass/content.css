@@ -1,0 +1,340 @@
+/* Color Theme Swatches in Hex */
+@-webkit-keyframes border_button_before {
+  0% {
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+  }
+  25% {
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 0;
+  }
+  50% {
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+  }
+  75% {
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+  }
+  100% {
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+  }
+}
+@keyframes border_button_before {
+  0% {
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+  }
+  25% {
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 0;
+  }
+  50% {
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+  }
+  75% {
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+  }
+  100% {
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+  }
+}
+
+@-webkit-keyframes border_button_after {
+  0% {
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+  }
+  25% {
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+  }
+  50% {
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+  }
+  75% {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+  }
+  100% {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@keyframes border_button_after {
+  0% {
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+  }
+  25% {
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+  }
+  50% {
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+  }
+  75% {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+  }
+  100% {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+button,
+a {
+  color: #FCE0FC;
+  font-size: 1.6vw;
+}
+
+#content {
+  height: 100%;
+  /*
+  It puts the content above the canvas
+  */
+}
+
+#content .sec {
+  position: relative;
+  width: 80%;
+  margin: auto;
+  height: 100%;
+  padding: 10vw 5vw 10vw 5vw;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#content .up {
+  position: absolute;
+  z-index: 1000;
+}
+
+#content #s0 button {
+  background-color: transparent;
+  border: none;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #FCE0FC;
+  font-size: 3vw;
+  right: 5%;
+  bottom: 20%;
+  cursor: pointer;
+  -webkit-transition: opacity 500ms, -webkit-transform 100ms;
+  transition: opacity 500ms, -webkit-transform 100ms;
+  transition: transform 100ms, opacity 500ms;
+  transition: transform 100ms, opacity 500ms, -webkit-transform 100ms;
+}
+
+#content #s0 button:active, #content #s0 button:hover, #content #s0 button:focus {
+  outline: 0 !important;
+  outline-offset: 0;
+}
+
+#content #s0 button::before, #content #s0 button::after {
+  position: absolute;
+  content: "";
+}
+
+#content #s0 button::before {
+  -webkit-animation: border_button_before 1000ms ease 0ms infinite alternate both;
+          animation: border_button_before 1000ms ease 0ms infinite alternate both;
+  border-top: 1px solid #FCE0FC;
+  border-left: 1px solid #FCE0FC;
+}
+
+#content #s0 button::after {
+  -webkit-animation: border_button_after 1000ms ease 0ms infinite alternate both;
+          animation: border_button_after 1000ms ease 0ms infinite alternate both;
+  border-bottom: 1px solid #FCE0FC;
+  border-right: 1px solid #FCE0FC;
+}
+
+#content #s0 button:hover {
+  color: #FCE0FC;
+}
+
+#content #s0 button:hover::after {
+  border-bottom: 1px solid #D9048E;
+  border-right: 1px solid #D9048E;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+
+#content #s0 button:hover::before {
+  border-top: 1px solid #D9048E;
+  border-left: 1px solid #D9048E;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+
+#content #s0.show button {
+  opacity: 1;
+}
+
+#content #s0.hide button {
+  opacity: 0;
+}
+
+#content #s1 h1 {
+  font-size: 3.4vw;
+  text-transform: uppercase;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  border-left: 3px solid #FCE0FC;
+  padding-left: 1.4vw;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  opacity: 0.4;
+  -webkit-transition: -webkit-transform 500ms;
+  transition: -webkit-transform 500ms;
+  transition: transform 500ms;
+  transition: transform 500ms, -webkit-transform 500ms;
+}
+
+#content #s1.show h1 {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  opacity: 1;
+}
+
+#content #s1 h2 {
+  font-size: 3.4vw;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-style: italic;
+  bottom: 10%;
+  opacity: 0;
+  -webkit-transition: opacity 1000ms 1000ms;
+  transition: opacity 1000ms 1000ms;
+}
+
+#content #s1.show h2 {
+  opacity: 1;
+}
+
+#content #s1 #credits {
+  left: 36%;
+  top: 38%;
+  background: linear-gradient(45deg, #310118, #81033e);
+  border-radius: 1.4vw;
+  padding: 1.5vw 3vw 1.5vw 3vw;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 44%;
+  height: 28%;
+  -webkit-transform: scaleY(0);
+          transform: scaleY(0);
+  -webkit-transition: -webkit-transform 400ms;
+  transition: -webkit-transform 400ms;
+  transition: transform 400ms;
+  transition: transform 400ms, -webkit-transform 400ms;
+}
+
+#content #s1 #credits ul {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  opacity: 0;
+  -webkit-transition: opacity 200ms 400ms;
+  transition: opacity 200ms 400ms;
+}
+
+#content #s1 #credits ul li {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+#content #s1 #credits ul li a {
+  font-size: 1.1em;
+}
+
+#content #s1 #credits ul li a:before {
+  content: ">  ";
+  font-size: 1.4em;
+  color: #FCE0FC;
+  font-weight: 300;
+  font-style: normal;
+  opacity: 0;
+  -webkit-transition: opacity 600ms;
+  transition: opacity 600ms;
+}
+
+#content #s1 #credits ul li a:hover::before {
+  opacity: 1;
+}
+
+#content #s1.show #credits {
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
+}
+
+#content #s1.show #credits ul {
+  opacity: 1;
+}
+/*# sourceMappingURL=content.css.map */
