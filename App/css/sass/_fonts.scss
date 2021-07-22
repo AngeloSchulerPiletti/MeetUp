@@ -24,3 +24,10 @@
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
 }
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Coustard&display=block');
+@mixin serif {
+    font-family: 'Coustard', serif;
+}

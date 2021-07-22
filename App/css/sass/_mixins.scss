@@ -1,4 +1,120 @@
 @mixin frontCanvas {
-    position: absolute;
-    z-index: 1000;
+  position: absolute;
+  z-index: 1000;
 }
+
+@mixin anim_border1($colorA, $colorB, $delay) {
+  &::before,
+  &::after {
+    position: absolute;
+    content: "";
+  }
+  &::before {
+    animation: border_button_before 1000ms ease $delay infinite alternate both;
+    border-top: 1px solid $colorA;
+    border-left: 1px solid $colorA;
+  }
+  &::after {
+    animation: border_button_after 1000ms ease $delay infinite alternate both;
+    border-bottom: 1px solid $colorA;
+    border-right: 1px solid $colorA;
+  }
+  transition: transform 100ms, opacity 500ms;
+
+  &:hover {
+    color: $colorA;
+    &::after {
+      border-bottom: 1px solid $colorB;
+      border-right: 1px solid $colorB;
+      animation-play-state: paused;
+    }
+    &::before {
+      border-top: 1px solid $colorB;
+      border-left: 1px solid $colorB;
+      animation-play-state: paused;
+    }
+  }
+}
+@mixin anim_border2 {
+  &::before,
+  &::after {
+    position: absolute;
+    content: "";
+  }
+  &::before {
+    animation: div_border_before 1000ms ease 600ms infinite alternate both;
+    border-top: 1px solid $color1;
+    border-left: 1px solid $color1;
+    border-right: 1px solid $color1;
+  }
+  &::after {
+    animation: div_border_after 1000ms ease 600ms infinite alternate both;
+    border-bottom: 1px solid $color1;
+  }
+  transition: transform 1000ms;
+  &:hover {
+    transform: scale(1.05);
+    &::after {
+      border-bottom: 1px solid $color1;
+      border-right: 1px solid $color1;
+      animation-play-state: paused;
+    }
+    &::before {
+      border-top: 1px solid $color1;
+      border-left: 1px solid $color1;
+      animation-play-state: paused;
+    }
+  }
+}
+
+@mixin arrow_btn {
+  #ar1 {
+    animation: arrow2 1000ms ease-in-out 0ms infinite alternate both;
+  }
+  #ar2 {
+    z-index: 100;
+    &:hover + #ar1 {
+      animation-play-state: paused;
+    }
+  }
+}
+
+@mixin principal_btn {
+  background-color: transparent;
+  border: none;
+  opacity: 0;
+
+  @include Font3;
+  text-transform: uppercase;
+  color: $color0;
+  font-size: 3vw;
+
+  right: 5%;
+  bottom: 20%;
+
+  cursor: pointer;
+
+  &:active,
+  &:hover,
+  &:focus {
+    outline: 0 !important;
+    outline-offset: 0;
+  }
+}
+
+
+@mixin selector {
+    &:before {
+        content: ">  ";
+        font-size: 1.4em;
+        color: $color0;
+        font-weight: 300;
+        font-style: normal;
+        opacity: 0;
+        transition: opacity 600ms;
+      }
+      &:hover::before {
+        opacity: 1;
+      }
+}
+

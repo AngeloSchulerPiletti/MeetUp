@@ -2,6 +2,7 @@
 @import "./colors";
 @import "./mixins";
 @import "./animations";
+@import "./elements";
 
 // DEFAULT
 p,
@@ -39,86 +40,30 @@ a {
   #s0 {
     // padding: 10vw 0 0 0;
     button {
-      background-color: transparent;
-      border: none;
-
-      @include Font3;
-      text-transform: uppercase;
-      color: $color0;
-      font-size: 3vw;
-
-      right: 5%;
-      bottom: 20%;
-
-      cursor: pointer;
-
-      &:active,
-      &:hover,
-      &:focus {
-        outline: 0 !important;
-        outline-offset: 0;
-      }
-      &::before,
-      &::after {
-        position: absolute;
-        content: "";
-      }
-      &::before {
-        animation: border_button_before 1000ms ease 0ms infinite alternate both;
-        border-top: 1px solid $color0;
-        border-left: 1px solid $color0;
-      }
-      &::after {
-        animation: border_button_after 1000ms ease 0ms infinite alternate both;
-        border-bottom: 1px solid $color0;
-        border-right: 1px solid $color0;
-      }
-      transition: transform 100ms, opacity 500ms;
-
-      &:hover {
-        color: $color0;
-        &::after {
-          border-bottom: 1px solid $color1;
-          border-right: 1px solid $color1;
-          animation-play-state: paused;
-        }
-        &::before {
-          border-top: 1px solid $color1;
-          border-left: 1px solid $color1;
-          animation-play-state: paused;
-        }
-      }
+      @include principal_btn;
+      @include anim_border1($color0, $color1, 0ms);
     }
-    &.show button{
-        opacity: 1;
-    }
-    &.hide button{
-        opacity: 0;
+
+    &.show button {
+      opacity: 1;
     }
   }
-  
 
   //SEÇÃO 1
   #s1 {
-    h1 {
-      font-size: 3.4vw;
-      text-transform: uppercase;
-      @include Font3;
-
-      border-left: 3px solid $color0;
-      padding-left: 1.4vw;
-
+    .title1 {
       transform: translateX(-100%);
-      opacity: 0.4;
-      transition: transform 500ms;
+      opacity: 0;
+      transition: transform 500ms, opacity 300ms;
     }
-    &.show h1 {
+    &.show .title1 {
       transform: translateX(0);
       opacity: 1;
     }
     h2 {
       font-size: 3.4vw;
       @include Font2_I;
+      color: lighten($color1, 20%);
 
       bottom: 10%;
 
@@ -131,17 +76,8 @@ a {
     #credits {
       left: 36%;
       top: 38%;
-      background: linear-gradient(
-        45deg,
-        darken($color4, 8%),
-        lighten($color4, 8%)
-      );
-      border-radius: 1.4vw;
       padding: 1.5vw 3vw 1.5vw 3vw;
       box-sizing: border-box;
-
-      width: 44%;
-      height: 28%;
 
       transform: scaleY(0);
       transition: transform 400ms;
@@ -158,29 +94,274 @@ a {
         li {
           @include Font2_I;
           a {
-            font-size: 1.1em;
-            &:before {
-              content: ">  ";
-              font-size: 1.4em;
-              color: $color0;
-              font-weight: 300;
-              font-style: normal;
-              opacity: 0;
-              transition: opacity 600ms;
+            font-size: 1.4em;
+            @include selector;
+          }
+        }
+      }
+    }
+    &.show #credits {
+      transform: scaleY(1);
+
+      ul {
+        opacity: 1;
+      }
+    }
+  }
+
+  #s2 {
+    .title1 {
+      color: transparent;
+      transition: color 300ms 600ms;
+      &::before {
+        height: 0;
+        transition: height 600ms;
+      }
+    }
+    &.show .title1 {
+      color: $color0;
+      &::before {
+        height: 100%;
+      }
+    }
+    div {
+      bottom: 12%;
+      left: 15%;
+
+      @include anim_border2;
+
+      img {
+        width: 24vw;
+        opacity: 0;
+        transition: opacity 200ms 1600ms;
+      }
+    }
+    &.show div img {
+      opacity: 1;
+    }
+
+    button {
+      bottom: 20%;
+      right: 20%;
+      .arrow {
+        width: 12vw;
+        position: absolute;
+        bottom: 0;
+      }
+      @include arrow_btn;
+
+      opacity: 0;
+      transition: opacity 200ms 2500ms;
+    }
+    &.show button {
+      opacity: 1;
+    }
+  }
+
+  #s3 {
+    .title2 {
+      opacity: 0;
+      transition: opacity 500ms;
+    }
+    &.show .title2 {
+      opacity: 1;
+    }
+    #list {
+      right: 10%;
+      top: 40%;
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6vw;
+      }
+      li {
+        @include Font1;
+        font-size: 1.4em;
+      }
+
+      opacity: 0;
+      transition: opacity 500ms;
+    }
+    &.show #list {
+      opacity: 1;
+    }
+    #dev_gif {
+      bottom: 15%;
+      padding: 1vw;
+      @include anim_border1($color1, $color0, 600ms);
+
+      img {
+        width: 22vw;
+      }
+
+      transform: scale(0, 0);
+      opacity: 0;
+      transition: transform 1000ms 200ms, opacity 800ms 200ms;
+    }
+    &.show #dev_gif {
+      opacity: 1;
+      transform: scale(1, 1);
+    }
+  }
+
+  #s4 {
+    .title1 {
+      opacity: 0;
+      transition: opacity 1000ms;
+    }
+    &.show .title1 {
+      opacity: 1;
+    }
+    #objetivos_container {
+      div {
+        display: flex;
+        flex-direction: column;
+        width: min-content;
+        top: 38%;
+
+        opacity: 0;
+        transition: opacity 500ms 1000ms;
+      }
+      img {
+        height: 16vw;
+        margin: 1.5vw;
+      }
+      p {
+        text-align: center;
+        @include Font1;
+        font-size: 1.2em;
+      }
+      #obj1 {
+        right: 36%;
+      }
+      #obj2 {
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        border-top: 3px solid $color1;
+        width: 100%;
+        opacity: 0;
+
+        transition: width 600ms 400ms, opacity 1000ms;
+      }
+    }
+    &.show #objetivos_container::before {
+      opacity: 1;
+      width: 0;
+    }
+    &.show #objetivos_container div {
+      opacity: 1;
+    }
+
+    button {
+      bottom: 30%;
+      right: 20%;
+      .arrow {
+        width: 12vw;
+        position: absolute;
+        bottom: 0;
+      }
+      @include arrow_btn;
+
+      opacity: 0;
+      transition: opacity 800ms 1800ms;
+    }
+    &.show button {
+      opacity: 1;
+    }
+  }
+
+  #s5 {
+    .title1 {
+      transform: translateX(-20%);
+      opacity: 0;
+      transition: transform 600ms, opacity 500ms;
+    }
+    &.show .title1 {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    #licao {
+      top: 51%;
+
+      &::before,
+      &::after {
+        position: absolute;
+        content: "";
+      }
+      &::before {
+        animation: div_border_before 1000ms ease 1000ms 1 alternate both;
+        border-top: 1px solid $color1;
+        border-left: 1px solid $color1;
+        border-right: 1px solid $color1;
+      }
+      &::after {
+        animation: div_border_after 1000ms ease 1000ms 1 alternate both;
+        border-bottom: 1px solid $color1;
+      }
+
+      p {
+        @include Font1_I;
+        font-size: 1.4em;
+
+        &::before,
+        &::after {
+          content: '" ';
+          @include serif;
+          font-size: 1.1em;
+        }
+      }
+
+      opacity: 0;
+      transition: opacity 1000ms 400ms;
+    }
+    &.show #licao {
+      opacity: 1;
+    }
+    button {
+      @include principal_btn;
+      @include anim_border1($color0, $color1, 0ms);
+      bottom: 10%;
+    }
+    &.show button {
+      opacity: 1;
+    }
+  }
+
+  #s6 {
+    #redes {
+      top: 40%;
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 2vw;
+        li {
+          a {
+            display: flex;
+            align-items: center;
+
+            @include Font2;
+            font-size: 1.4em;
+
+            img {
+              width: 4vw;
+              margin-right: 1.4vw;
             }
-            &:hover::before {
-              opacity: 1;
+            @include selector;
+            &::before {
+              padding-right: 1vw;
             }
           }
         }
       }
     }
-    &.show #credits{
-        transform: scaleY(1);
-
-        ul{
-            opacity: 1;
-        }
+    opacity: 0;
+    transition: opacity 1500ms;
+    &.show {
+      opacity: 1;
     }
   }
 }

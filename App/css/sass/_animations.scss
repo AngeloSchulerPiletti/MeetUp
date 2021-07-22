@@ -1,30 +1,34 @@
 @keyframes border_button_before {
   0% {
-    top: 0; right: 0;
+    top: 0;
+    right: 0;
     width: 0;
     height: 0;
   }
   25% {
-    top: 0; right: 0;
+    top: 0;
+    right: 0;
     width: 100%;
     height: 0;
   }
-  50%{
-    top: 0; right: 0;
+  50% {
+    top: 0;
+    right: 0;
     width: 100%;
     height: 100%;
   }
-  75%{
-    bottom: 0; left: 0;
+  75% {
+    bottom: 0;
+    left: 0;
     width: 0;
     height: 100%;
   }
-  100%{
-    bottom: 0; left: 0;
+  100% {
+    bottom: 0;
+    left: 0;
     width: 0;
     height: 0;
   }
-
 }
 @keyframes border_button_after {
   0% {
@@ -59,8 +63,69 @@
   }
 }
 
+@keyframes div_border_before {
+  0% {
+    top: -1vw;
+    right: 50%;
+    width: 0;
+    height: 0;
+  }
+  25% {
+    top: -1vw;
+    right: -1vw;
+    width: calc(100% + 2vw);
+    height: 0;
+  }
+  50% {
+    top: -1vw;
+    right: -1vw;
+    width: calc(100% + 2vw);
+    height: calc(100% + 2vw);
+  }
+  100% {
+    top: -1vw;
+    right: -1vw;
+    width: calc(100% + 2vw);
+    height: calc(100% + 2vw);
+  }
+}
+@keyframes div_border_after {
+    0%{
+
+    }
+    50%{
+        bottom: -1vw;
+        right: -1vw;
+        width: 0;
+        height: 0;
+    }
+    80%{
+        bottom: -1vw;
+        right: -1vw;
+        width: calc(100% + 2vw);
+        height: 0;
+    }
+    100%{
+        bottom: -1vw;
+        right: -1vw;
+        width: calc(100% + 2vw);
+        height: 0;
+    }
+}
 
 
 
 
 
+
+@keyframes arrow2{
+    0%{
+        transform: translate(-4%, 3%);
+    }
+    25%{
+        transform: translate(-8%, 3%);
+    }
+    100%{
+        transform: translate(-3%, 3%);
+    }
+}

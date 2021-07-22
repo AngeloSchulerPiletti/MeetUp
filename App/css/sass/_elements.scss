@@ -1,0 +1,33 @@
+.title1{
+  font-size: 3.4vw;
+  text-transform: uppercase;
+  @include Font3;
+
+  padding-left: 1.4vw;
+  &::before{
+      position: absolute;
+      left: 0;
+      content: "";
+      height: 100%;
+      border-left: 3px solid $color1;
+  }
+}
+
+.title2{
+  font-size: 3.8vw;
+  text-transform: capitalize;
+  @include Font2;
+
+  &::before{
+      position: absolute;
+      bottom: 0;
+      content: "";
+      width: 100%;
+      border-bottom: 2px solid $color1;
+  }
+}
+
+
+.next_btn{
+  cursor: pointer;
+}
