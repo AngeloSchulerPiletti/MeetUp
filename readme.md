@@ -1,0 +1,2 @@
+## Sobre 
+Trata-se de uma apresentação que criei para um meetup no meu curso. Essa apresentação não é responsiva, mas você pode usá-la para criar a sua, visto que a mesma já possui diversas funcionalidades e elementos gráficos como as bordas animadas.
